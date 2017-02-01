@@ -66,4 +66,14 @@ describe('Airport', function(){
     myAirport.takeoff(myPlane.id())
     expect(myAirport.planes()).toEqual([otherPlane.id(), anotherPlane.id()]);
   })
+  it('has weather', function(){
+    var myAirport = new Airport()
+    expect(myAirport.weather()).toEqual('clear')
+  })
+  it('knows when not clear', function(){
+    var myAirport = new Airport()
+    myAirport.changeWeather('stormy')
+    var myPlane = new Plane(1)
+    expect(function() { myAirport.land(myPlane.id())}).toThrow(new Error("Weather is not clear"))
+  })
 })
