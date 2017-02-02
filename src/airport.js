@@ -1,5 +1,7 @@
-function Airport(){
-  this._capacity = 3
+const MAX_CAPACITY = 3;
+
+function Airport(capacity = MAX_CAPACITY){
+  this._capacity = capacity
   this._planes = []
   this._weather = 'clear'
 }
@@ -32,13 +34,13 @@ Airport.prototype.isFull = function(){
  }
 }
 
-Airport.prototype.land = function(plane){
+Airport.prototype.land = function(id){
   if (this.isFull() == true){
     throw new Error('Airport is full')
   } else if (this.isClear() == false){
     throw new Error('Weather is not clear')
   } else {
-  this._planes.push(plane)}
+  this._planes.push(id)}
 }
 
 Airport.prototype.takeoff = function(id){

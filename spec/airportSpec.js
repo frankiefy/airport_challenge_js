@@ -21,8 +21,8 @@ describe('Airport', function(){
   it('can receive planes', function(){
     var myAirport = new Airport()
     var myPlane = new Plane(1)
-    myAirport.land(myPlane)
-    expect(myAirport.planes()).toContain(myPlane)
+    myAirport.land(myPlane.id())
+    expect(myAirport.planes()).toContain(myPlane.id())
   })
   it('can takeoff planes', function(){
     var myAirport = new Airport()
@@ -77,3 +77,5 @@ describe('Airport', function(){
     expect(function() { myAirport.land(myPlane.id())}).toThrow(new Error("Weather is not clear"))
   })
 })
+
+debugger;
